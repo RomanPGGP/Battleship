@@ -7,19 +7,20 @@ namespace WebApplication1.Models
 {
     public class Battleship
     {
-        public bool[,] grid = new bool[5, 5] { {false, false, false, false, false}, 
-                                               {false, false, false, false, false}, 
-                                               {false, false, false, false, false}, 
-                                               {false, false, false, false, false}, 
+        public bool[,] grid { get; } = new bool[5, 5] { {false, false, false, false, false},
+                                               {false, false, false, false, false},
+                                               {false, false, false, false, false},
+                                               {false, false, false, false, false},
                                                {false, false, false, false, false}};
         public Ship[] ships = new Ship[5];
+        public int hits = 0;
 
         public Battleship(int[,] positions)
         {
             for (int i = 0; i < 5; i++)
             {
                 ships[i].row = positions[i,0];
-                ships[i].col = positions[0, i];
+                ships[i].col = positions[0,i];
 
                 grid[positions[i, 0], positions[0, i]] = true;
             }
@@ -29,6 +30,7 @@ namespace WebApplication1.Models
         {
             if (grid[row, col])
             {
+                hits++;
                 return true;
             }
 
@@ -37,18 +39,7 @@ namespace WebApplication1.Models
 
         public bool CheckGameStatus()
         {
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    if (!grid[i, j])
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
+            return (hits >= 5); 
         }
 
     }
