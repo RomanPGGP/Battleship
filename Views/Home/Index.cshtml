@@ -6,7 +6,7 @@
     <img src="~/images/battleshipbackground.jpg" />
 
     <h1>Welcome to Battleship!</h1><br /><br />
-</div>
+</div><br />
 
 <div class="container">
     <div class="col-lg-6 col-md-6" style="border: 4px; border-style:solid; border-color:#0094ff; padding: 1em;">
@@ -34,7 +34,7 @@
             </li>
         </ul>
     </div>
-    
+
     <div class="card-body" id="findfriend">
         <h5 class="card-title">Find a friend</h5>
         <p class="card-text">Find a friend by introducing their code below:</p>
@@ -55,4 +55,4 @@
 
 </div><br /><br />
 
-<button type="button" class="btn btn-success btn-lg center-block">Start!</button>
+<button type="button" class="btn btn-success btn-lg center-block" onclick="location.href='@Url.Action("Index","Battleship")'">Start!</button>

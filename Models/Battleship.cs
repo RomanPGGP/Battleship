@@ -8,10 +8,10 @@ namespace WebApplication1.Models
     public class Battleship
     {
         public bool[,] grid { get; } = new bool[5, 5] { {false, false, false, false, false},
-                                               {false, false, false, false, false},
-                                               {false, false, false, false, false},
-                                               {false, false, false, false, false},
-                                               {false, false, false, false, false}};
+                                                        {false, false, false, false, false},
+                                                        {false, false, false, false, false},
+                                                        {false, false, false, false, false},
+                                                        {false, false, false, false, false}};
         public Ship[] ships = new Ship[5];
         public int hits = 0;
 
@@ -19,11 +19,13 @@ namespace WebApplication1.Models
         {
             for (int i = 0; i < 5; i++)
             {
-                ships[i].row = positions[i,0];
-                ships[i].col = positions[0,i];
-
-                grid[positions[i, 0], positions[0, i]] = true;
+                grid[positions[i, 0], positions[i, 1]] = true;
             }
+        }
+
+        public void Place(int row, int col)
+        {
+            grid[row, col] = true;
         }
 
         public bool Attack(int row, int col)
