@@ -7,13 +7,21 @@ namespace WebApplication1.Models
 {
     public class Battleship
     {
-        public bool[,] grid { get; } = new bool[5, 5] { {false, false, false, false, false},
-                                                        {false, false, false, false, false},
-                                                        {false, false, false, false, false},
-                                                        {false, false, false, false, false},
-                                                        {false, false, false, false, false}};
+        public bool[,] grid { get; } = new bool[5, 5];
         public Ship[] ships = new Ship[5];
         public int hits = 0;
+
+        public Battleship()
+        {
+            hits = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    grid[i, j] = false;
+                }
+            }
+        }
 
         public Battleship(int[,] positions)
         {

@@ -34,12 +34,6 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        void StartGame()
-        {
-
-            Console.Write("Entered here");
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

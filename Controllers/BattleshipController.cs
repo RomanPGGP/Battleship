@@ -11,27 +11,22 @@ namespace WebApplication1.Controllers
     public class BattleshipController : Controller
     {
 
-        public Battleship BattleshipBoard1;
+        static public Battleship BattleshipBoard1 = new Battleship();
 
         public IActionResult Index()
         {
-            return View();
+            return View("Index", BattleshipBoard1);
         }
 
         public IActionResult Game()
         {
-            int[,] myships = new int[5, 2] { { 0, 1 }, { 1, 1 }, { 2, 3 }, { 4, 4 }, { 1, 4 } };
-            BattleshipBoard1 = new Battleship(myships);
-            return View(BattleshipBoard1);
+            return View("Game", BattleshipBoard1);
         }
 
         public void PlaceShip()
         {
-            int row = 0;
-            int col = 0;
 
-            BattleshipBoard1.Place(row,col);
-            Console.Out.Write(true);
+            View("Index", BattleshipBoard1);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
