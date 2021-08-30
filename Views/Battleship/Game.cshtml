@@ -1,5 +1,4 @@
-﻿@page
-@model WebApplication1.Models.Battleship
+﻿@model List<WebApplication1.Models.Battleship>
 @{
     
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,15 +7,53 @@
 <div class="active">
     <h2>Fight!</h2><br />
 
-    <div class="wrapperg">
-        @for (int i = 0; i<50; i++)
-        {
-            @if(i<25){
-                <div class="boxe box1"> Bs </div>
+    @{ int cnt = 0;}
+
+    @using (Html.BeginForm("attackClick", "Battleship"))
+    {
+        <div class="wrapperg">
+            @for (int j = 0; j < 2; j++)
+            {
+
+                @foreach (var item in Model[j].grid)
+                {
+                    if (j == 0)
+                    {
+                        if (item==1)
+                        {
+                            <div class="boxm box1">
+                                <img src="~/images/shipicon.png" />
+                            </div>
+                        }
+                        else if(item==0)
+                        {
+                            <div class="boxm box1">Bs</div>
+                        }
+                        else if (item == 2)
+                        {
+                            <div class="boxe box1">
+                                <img src="~/images/deadship.png" />
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        if (item<2)
+                        {
+                            <button class="boxe" type="submit" name="cell" value=@cnt>BS</button>
+                        }
+                        else if (item == 2)
+                        {
+                            <button class="boxe" type="submit" name="cell" value=@cnt>
+                                <img src="~/images/deadship.png" />
+                            </button>
+                        }
+                        
+                        cnt++;
+                    }
+                }
             }
-             else{
-                <div class="boxm box1"> Bs </div>
-            }
-        }
-    </div>
-</div>
+        </div>
+     }
+
+        </div>

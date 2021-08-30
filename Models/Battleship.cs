@@ -7,9 +7,9 @@ namespace WebApplication1.Models
 {
     public class Battleship
     {
-        public bool[,] grid { get; } = new bool[5, 5];
-        public Ship[] ships = new Ship[5];
+        public int[,] grid { get; } = new int[5, 5];
         public int hits = 0;
+        public int ShipsPlaced = 0;
 
         public Battleship()
         {
@@ -18,7 +18,7 @@ namespace WebApplication1.Models
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    grid[i, j] = false;
+                    grid[i, j] = 0;
                 }
             }
         }
@@ -27,19 +27,29 @@ namespace WebApplication1.Models
         {
             for (int i = 0; i < 5; i++)
             {
-                grid[positions[i, 0], positions[i, 1]] = true;
+                grid[positions[i, 0], positions[i, 1]] = 1;
             }
         }
 
-        public void Place(int row, int col)
+        public bool Place(int row, int col)
         {
-            grid[row, col] = true;
+            if (ShipsPlaced <= 4)
+            {
+                if (grid[row, col] == 0)
+                {
+                    grid[row, col] = 1;
+                    ShipsPlaced++;
+                }   
+            }
+
+            return (ShipsPlaced < 5);
         }
 
         public bool Attack(int row, int col)
         {
-            if (grid[row, col])
+            if (grid[row, col]==1)
             {
+                grid[row, col] = 2;
                 hits++;
                 return true;
             }

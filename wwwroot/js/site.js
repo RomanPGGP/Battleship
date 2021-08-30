@@ -18,3 +18,6 @@ document.getElementById("offlinetab").addEventListener("click", function () {
     document.getElementById("computerfriend").hidden = "";
     document.getElementById("randomfriend").hidden = "hidden";
 })
+document.getElementsById("gb").addEventListener("click", function () {
+    document.getElementById("shipicon").hidden = "";
+})

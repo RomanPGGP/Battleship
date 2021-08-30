@@ -25,21 +25,6 @@ body {
     clear: both;
 }
 
-.box {
-    background-color: lightgrey;
-    color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 150%;
-}
-
-.box:hover {
-    background-color: yellow;
-    color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 150%;
-}
 
 .boxe {
     background-color: #d76262;
@@ -57,15 +42,6 @@ body {
     font-size: 150%;
 }
 
-.wrapper {
-    width: 600px;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(5, 100px);
-    grid-template-rows: repeat(5, 100px);
-    grid-auto-flow: column;
-}
-
 .wrapperg {
     width: 1000px;
     display: grid;
@@ -75,6 +51,41 @@ body {
     grid-auto-flow: column;
 }
 
+.box {
+    background-color: #b4afaf;
+    align-content:center;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.box:hover {
+    background-color: #ffd800;
+    align-content: center;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.boxs {
+    background-color: #87cf68;
+    align-content: center;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.wrapper {
+    width: 100%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, 150px);
+    grid-template-rows: repeat(5, 150px);
+    grid-auto-flow: column;
+}
 /* NOT USE?*/
 /* Carousel */
 .carousel-caption p {
