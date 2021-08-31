@@ -10,6 +10,8 @@ namespace WebApplication1.Models
         public int[,] grid { get; } = new int[5, 5];
         public int hits = 0;
         public int ShipsPlaced = 0;
+        public string Username { get; set; }
+        public int BoardID { get; set; }
 
         public Battleship()
         {
