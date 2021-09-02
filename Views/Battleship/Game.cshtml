@@ -1,6 +1,6 @@
 ﻿@model List<WebApplication1.Models.Battleship>
 @{
-    
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,6 +8,24 @@
     <h2>Fight!</h2><br />
 
     @{ int cnt = 0;}
+
+    @{
+        if (Model[0].hits > 4)
+        {
+            <script>
+                alert("You Lost!")
+                window.location.replace("..")
+            </script>
+        }
+
+        if (Model[1].hits > 4)
+        {
+            <script>
+                alert("You Won!")
+                window.location.replace("..")
+            </script>
+        }
+    }
 
     @using (Html.BeginForm("attackClick", "Battleship"))
     {
@@ -19,13 +37,13 @@
                 {
                     if (j == 0)
                     {
-                        if (item==1)
+                        if (item == 1)
                         {
                             <div class="boxm box1">
                                 <img src="~/images/shipicon.png" />
                             </div>
                         }
-                        else if(item==0)
+                        else if (item == 0)
                         {
                             <div class="boxm box1">Bs</div>
                         }
@@ -38,7 +56,7 @@
                     }
                     else
                     {
-                        if (item<2)
+                        if (item < 2)
                         {
                             <button class="boxe" type="submit" name="cell" value=@cnt>BS</button>
                         }
@@ -48,12 +66,12 @@
                                 <img src="~/images/deadship.png" />
                             </button>
                         }
-                        
+
                         cnt++;
                     }
                 }
             }
         </div>
-     }
+    }
 
-        </div>
+</div>
